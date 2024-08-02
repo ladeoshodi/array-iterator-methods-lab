@@ -340,3 +340,33 @@ console.log("Exercise 3 correct result: ", [
   { first: "Albert", last: "Einstein", year: 1879, passed: 1955 },
   { first: "Katherine", last: "Blodgett", year: 1898, passed: 1979 },
 ]);
+
+/*
+Level Up exercise 1: Array.prototype.reduce()
+
+Calculate the combined lifespan of all the inventors using 
+Array.prototype.reduce()
+
+- Each object in the array includes these properties: 
+  'first', 'last', 'year' (birth year), and 'passed' (year of death).
+- Use the Array.prototype.reduce() method to calculate the sum of the total 
+  years lived by all the inventors.
+- Store the total sum in the variable 'totalYearsLived'.
+
+Hints:
+
+- Inside the reduce callback function, calculate the lifespan of each inventor 
+  (passed - year).
+- Accumulate this lifespan in the 'totalYearsLived' variable.
+- Remember, reduce takes a callback function and an initial value for the 
+  accumulator.
+*/
+
+const totalYearsLived = inventors.reduce((total, current) => {
+  const inventorYears = current.passed - current.year;
+  return total + inventorYears;
+}, 0);
+
+// Check your work:
+console.log("Level Up 1 my result: ", totalYearsLived);
+console.log("Level Up 1 correct result: ", 861);
